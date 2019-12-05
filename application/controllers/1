@@ -1,0 +1,101 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Blog extends CI_Controller {
+
+    public function index()
+    {
+        $this->load->database();
+        $sql =<<<SQL
+            SELECT `id`, `title`, `contents` FROM `blog`;
+SQL;
+        $blogs = $this->db->query($sql)->result_array();
+
+        $date['blogs'] = $blogs;
+        $this->load->view('blog/index', $data);
+    }
+
+
+	public function create()
+	{
+		$this->load->view('blog/create');
+    }
+
+    public function store()
+    {
+        $post = $_POST;
+        $this->load->database();
+
+        $sql =<<<SQL
+            INSERT INTO `blog` (`title`, `contents`) VALUES (?, ?);
+SQL;
+        $insert_data[] = $post['title'];
+        $insert_data[] = $post['contents'];
+
+        $result = $this->db->query($sql, $insert_data);
+        print "<pre>";
+        var_dump($this->db->last_query());
+
+        $this->load->view('blog/store', $post);
+
+
+    }
+
+    public function dedatil($id)
+    {
+        $sql =<<<SQL
+            SELECT * FROM `blog` WHERE `id` = ?
+SQL;
+        $sql_data[] = $id;
+
+        $this->load->database();
+        $blog = $this->db->query($sql, $sql_data)->row_array();
+
+        $data['blog'] = $blog;
+
+        $this->load->view('blog/datail, $data');
+
+    }
+
+    public function edit($id)
+    {
+        $sql =<<<SQL
+            SELECT * FROM `blod` WHERE `id` = ?
+SQL;
+        $sql_data[] = $id;
+
+        $this->load->database();
+        $blog = $this->db->query($sql, $sql_data)->row_array();
+
+        $data['blog'] = $blog;
+
+        $this->load->view('blog/edit', $data);
+    }
+
+    public function update()
+    {
+        $post = $_POST;
+
+        $sql =<<<SQL
+            UPDATE `blog` SET `title` = ?, `contents` = ?, WHERE `id` = ?
+SQL;
+        $sql[] = $post['title'];
+        $sql[] = $post['contents'];
+        $sql[] = $post['id'];
+
+        $this->load->database();
+        $result = $this->db->query($sql, $sql_data);
+
+        if ($result) {
+            echo "更新しました";
+        } else {
+            echo "更新できませんでした";
+        }
+
+    }
+
+
+
+
+
+}

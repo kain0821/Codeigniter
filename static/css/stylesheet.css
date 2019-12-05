@@ -1,0 +1,111 @@
+body {
+	margin: 0;
+	font-family: "Hiragino Kaku Gothic ProN";
+}
+
+a {
+	text-decoration: none;
+}
+
+.contents {
+	width: 1170px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+header {
+	height:65px;
+	width:100%;
+	background-color:#724f34;
+	opacity:0.8;
+	min-width:1170px;
+
+}
+
+.title {
+    float:left;
+    font-size:30px;
+    margin-top:10px;
+    margin-left:10px;
+    color:#83abcd;
+}
+
+.header-left {
+    font-size:20px;
+    margin-left:700px;
+}
+
+.header-left a {
+    display:block;
+    float:left;
+    border:solid 1px black;
+    padding:5px 10px;
+    margin:10px 40px;
+    opacity:0.7;
+}
+
+.header-left a:hover {
+    opacity:1;
+}
+
+.header-left a:visited {
+    color:#83abcd;
+}
+
+
+.main {
+    background-color:rgba(131, 171, 205, 0.7);
+    color:#724f34;
+    width:100%;
+    height:100%;
+	min-width:1170px;
+	}
+
+.top {
+    padding-top:15px;
+    padding-left:10px;
+}
+
+.created {
+    font-size:20px;
+    margin-top:50px;
+    margin-left:25px;
+}
+
+.blog-title {
+    width:200px;
+}
+
+.blog-contents {
+    width:500px;
+    height:200px;
+}
+
+.blog-submit {
+    display:inline-block;
+    width:100px;
+    height:50px;
+    margin-top:20px;
+    background-color:white;
+    color:#724f34;
+    border:solid 1px black;
+    opacity:0.7;
+    font-size:20px;
+    border-radius:4px;
+    font-weight:bold;
+
+
+}
+
+.blog-submit:hover {
+    opacity:1;
+
+}
+
+.store-main {
+    background-color:rgba(131, 171, 205, 0.7);
+    color:#724f34;
+    width:100%;
+	min-width:1170px;
+    height:100%;
+}
